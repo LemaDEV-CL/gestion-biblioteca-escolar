@@ -1,28 +1,16 @@
 package cl.duoc.biblioteca;
 
-import cl.duoc.biblioteca.conexion.ConexionDB;
+import cl.duoc.biblioteca.vista.VistaLogin;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        try (
-                Connection conexion =
-                        ConexionDB
-                                .obtenerInstancia()
-                                .obtenerConexion()
-        ) {
-
-            System.out.println("Conexión exitosa a la base de datos.");
-
-        } catch (SQLException e) {
-
-            System.out.println(
-                    "Error de conexión: " + e.getMessage()
-            );
-        }
+        SwingUtilities.invokeLater(
+                () -> new VistaLogin()
+                        .setVisible(true)
+        );
     }
 }
