@@ -18,6 +18,7 @@ public class ControladorPrestamo {
     private final PrestamoDAO prestamoDAO;
     private final LibroDAO libroDAO;
     private final EstudianteDAO estudianteDAO;
+    private static final Object LOCK_STOCK = new Object();
 
     public ControladorPrestamo() {
 
@@ -31,119 +32,125 @@ public class ControladorPrestamo {
                 new EstudianteDAOImpl();
     }
 
-    public synchronized boolean registrarPrestamo(
+    public boolean registrarPrestamo(
             int idEstudiante,
             int idLibro
     ) {
 
-        if (idEstudiante <= 0 || idLibro <= 0) {
-            return false;
-        }
+        synchronized (LOCK_STOCK) {
 
-        Estudiante estudiante =
-                estudianteDAO.buscarPorId(
-                        idEstudiante
-                );
+            if (idEstudiante <= 0 || idLibro <= 0) {
+                return false;
+            }
 
-        if (estudiante == null) {
-            return false;
-        }
+            Estudiante estudiante =
+                    estudianteDAO.buscarPorId(
+                            idEstudiante
+                    );
 
-        Libro libro =
-                libroDAO.buscarPorId(
-                        idLibro
-                );
+            if (estudiante == null) {
+                return false;
+            }
 
-        if (libro == null
-                || libro.getStock() <= 0) {
+            Libro libro =
+                    libroDAO.buscarPorId(
+                            idLibro
+                    );
 
-            return false;
-        }
+            if (libro == null
+                    || libro.getStock() <= 0) {
 
-        int stockOriginal =
-                libro.getStock();
+                return false;
+            }
 
-        libro.setStock(
-                stockOriginal - 1
-        );
-
-        if (!libroDAO.actualizar(libro)) {
-            return false;
-        }
-
-        Prestamo prestamo =
-                new Prestamo(
-                        0,
-                        idEstudiante,
-                        idLibro,
-                        LocalDate.now(),
-                        LocalDate.now().plusDays(7),
-                        false
-                );
-
-        if (!prestamoDAO.crear(prestamo)) {
+            int stockOriginal =
+                    libro.getStock();
 
             libro.setStock(
-                    stockOriginal
+                    stockOriginal - 1
             );
 
-            libroDAO.actualizar(libro);
+            if (!libroDAO.actualizar(libro)) {
+                return false;
+            }
 
-            return false;
+            Prestamo prestamo =
+                    new Prestamo(
+                            0,
+                            idEstudiante,
+                            idLibro,
+                            LocalDate.now(),
+                            LocalDate.now().plusDays(7),
+                            false
+                    );
+
+            if (!prestamoDAO.crear(prestamo)) {
+
+                libro.setStock(
+                        stockOriginal
+                );
+
+                libroDAO.actualizar(libro);
+
+                return false;
+            }
+
+            return true;
         }
-
-        return true;
     }
 
-    public synchronized boolean devolverPrestamo(
+    public boolean devolverPrestamo(
             int idPrestamo
     ) {
 
-        Prestamo prestamo =
-                prestamoDAO.buscarPorId(
-                        idPrestamo
-                );
+        synchronized (LOCK_STOCK) {
 
-        if (prestamo == null
-                || prestamo.isDevuelto()) {
+            Prestamo prestamo =
+                    prestamoDAO.buscarPorId(
+                            idPrestamo
+                    );
 
-            return false;
-        }
+            if (prestamo == null
+                    || prestamo.isDevuelto()) {
 
-        Libro libro =
-                libroDAO.buscarPorId(
-                        prestamo.getIdLibro()
-                );
+                return false;
+            }
 
-        if (libro == null) {
-            return false;
-        }
+            Libro libro =
+                    libroDAO.buscarPorId(
+                            prestamo.getIdLibro()
+                    );
 
-        int stockOriginal =
-                libro.getStock();
+            if (libro == null) {
+                return false;
+            }
 
-        libro.setStock(
-                stockOriginal + 1
-        );
-
-        if (!libroDAO.actualizar(libro)) {
-            return false;
-        }
-
-        prestamo.setDevuelto(true);
-
-        if (!prestamoDAO.actualizar(prestamo)) {
+            int stockOriginal =
+                    libro.getStock();
 
             libro.setStock(
-                    stockOriginal
+                    stockOriginal + 1
             );
 
-            libroDAO.actualizar(libro);
+            if (!libroDAO.actualizar(libro)) {
+                return false;
+            }
 
-            return false;
+            prestamo.setDevuelto(true);
+
+            if (!prestamoDAO.actualizar(prestamo)) {
+
+                libro.setStock(
+                        stockOriginal
+                );
+
+                libroDAO.actualizar(libro);
+
+                return false;
+            }
+
+            return true;
         }
-
-        return true;
     }
 
     public boolean estaAtrasado(
