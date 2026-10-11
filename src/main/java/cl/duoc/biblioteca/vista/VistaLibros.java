@@ -9,6 +9,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Muestra el catálogo de libros y permite su gestión cuando no está en modo de solo lectura.
+ */
 public class VistaLibros extends JFrame {
 
     private final ControladorLibro controladorLibro;

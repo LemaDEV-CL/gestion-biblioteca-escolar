@@ -1,5 +1,8 @@
 package cl.duoc.biblioteca.modelo;
 
+/**
+ * Representa una cuenta de acceso con contraseña y rol.
+ */
 public class Usuario extends Persona {
 
     private String contrasena;

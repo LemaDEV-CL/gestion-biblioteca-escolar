@@ -1,5 +1,8 @@
 package cl.duoc.biblioteca.modelo;
 
+/**
+ * Representa a un estudiante de la biblioteca y su curso.
+ */
 public class Estudiante extends Persona {
 
     private String curso;

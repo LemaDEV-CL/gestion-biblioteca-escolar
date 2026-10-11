@@ -7,6 +7,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Permite consultar, crear, actualizar y eliminar estudiantes desde una ventana Swing.
+ */
 public class VistaEstudiantes extends JFrame {
 
     private final ControladorEstudiante controlador;

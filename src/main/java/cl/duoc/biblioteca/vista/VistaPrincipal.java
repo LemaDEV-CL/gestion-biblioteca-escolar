@@ -5,6 +5,9 @@ import cl.duoc.biblioteca.modelo.Usuario;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Muestra el menú de la biblioteca con las opciones disponibles según el rol.
+ */
 public class VistaPrincipal extends JFrame {
 
     private final Usuario usuario;

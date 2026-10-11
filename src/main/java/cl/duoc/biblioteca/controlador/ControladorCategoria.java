@@ -6,6 +6,9 @@ import cl.duoc.biblioteca.modelo.Categoria;
 
 import java.util.List;
 
+/**
+ * Valida los datos de las categorías y coordina su gestión con el DAO.
+ */
 public class ControladorCategoria {
 
     private final CategoriaDAO categoriaDAO;

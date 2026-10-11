@@ -4,6 +4,9 @@ import cl.duoc.biblioteca.modelo.Categoria;
 
 import java.util.List;
 
+/**
+ * Define las operaciones de consulta y mantenimiento de las categorías.
+ */
 public interface CategoriaDAO {
 
     boolean crear(Categoria categoria);

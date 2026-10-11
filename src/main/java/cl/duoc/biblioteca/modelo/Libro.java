@@ -1,5 +1,8 @@
 package cl.duoc.biblioteca.modelo;
 
+/**
+ * Representa un libro del catálogo, su categoría y el stock disponible.
+ */
 public class Libro {
 
     private int id;

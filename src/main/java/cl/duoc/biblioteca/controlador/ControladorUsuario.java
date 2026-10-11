@@ -6,6 +6,9 @@ import cl.duoc.biblioteca.modelo.Usuario;
 
 import java.util.List;
 
+/**
+ * Valida los datos de los usuarios y coordina su autenticación y gestión.
+ */
 public class ControladorUsuario {
 
     private final UsuarioDAO usuarioDAO;

@@ -2,6 +2,9 @@ package cl.duoc.biblioteca.modelo;
 
 import java.time.LocalDate;
 
+/**
+ * Representa el préstamo de un libro a un estudiante y su estado de devolución.
+ */
 public class Prestamo {
 
     private int id;

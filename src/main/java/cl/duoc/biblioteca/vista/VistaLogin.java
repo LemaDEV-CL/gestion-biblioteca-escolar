@@ -6,6 +6,9 @@ import cl.duoc.biblioteca.modelo.Usuario;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Muestra el formulario de acceso y solicita la autenticación del usuario.
+ */
 public class VistaLogin extends JFrame {
 
     private final JTextField txtCorreo;

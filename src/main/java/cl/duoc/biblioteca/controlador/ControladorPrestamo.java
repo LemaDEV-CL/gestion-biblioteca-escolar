@@ -13,6 +13,9 @@ import cl.duoc.biblioteca.modelo.Prestamo;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Coordina los préstamos y devoluciones, actualiza el stock y comprueba los atrasos.
+ */
 public class ControladorPrestamo {
 
     private final PrestamoDAO prestamoDAO;

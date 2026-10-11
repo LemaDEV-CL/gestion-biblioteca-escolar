@@ -7,6 +7,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Permite consultar, crear, actualizar y eliminar categorías desde una ventana Swing.
+ */
 public class VistaCategorias extends JFrame {
 
     private final ControladorCategoria controlador;

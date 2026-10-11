@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Centraliza el acceso a las conexiones MySQL mediante una instancia compartida.
+ */
 public class DatabaseConnection {
 
     private static DatabaseConnection instance;

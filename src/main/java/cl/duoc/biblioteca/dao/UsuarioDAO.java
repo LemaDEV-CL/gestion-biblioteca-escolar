@@ -4,6 +4,9 @@ import cl.duoc.biblioteca.modelo.Usuario;
 
 import java.util.List;
 
+/**
+ * Define la autenticación y las operaciones de consulta y mantenimiento de los usuarios.
+ */
 public interface UsuarioDAO {
 
     Usuario autenticar(String correo, String contrasena);

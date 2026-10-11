@@ -4,6 +4,9 @@ import cl.duoc.biblioteca.modelo.Prestamo;
 
 import java.util.List;
 
+/**
+ * Define las operaciones de consulta y mantenimiento de los préstamos.
+ */
 public interface PrestamoDAO {
 
     boolean crear(Prestamo prestamo);

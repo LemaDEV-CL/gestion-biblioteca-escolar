@@ -12,6 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa la autenticación y las operaciones de usuarios en MySQL mediante JDBC.
+ */
 public class UsuarioDAOImpl implements UsuarioDAO {
 
     @Override

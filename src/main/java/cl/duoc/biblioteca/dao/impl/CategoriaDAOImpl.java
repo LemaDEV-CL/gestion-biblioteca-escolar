@@ -12,6 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa las operaciones de categorías en MySQL mediante JDBC.
+ */
 public class CategoriaDAOImpl implements CategoriaDAO {
 
     @Override

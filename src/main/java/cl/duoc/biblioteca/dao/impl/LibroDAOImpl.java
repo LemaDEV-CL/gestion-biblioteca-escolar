@@ -12,6 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa las operaciones de libros en MySQL mediante JDBC.
+ */
 public class LibroDAOImpl implements LibroDAO {
 
     @Override

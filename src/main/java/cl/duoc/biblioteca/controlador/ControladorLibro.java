@@ -6,6 +6,9 @@ import cl.duoc.biblioteca.modelo.Libro;
 
 import java.util.List;
 
+/**
+ * Valida los datos de los libros y coordina su gestión con el DAO.
+ */
 public class ControladorLibro {
 
     private final LibroDAO libroDAO;

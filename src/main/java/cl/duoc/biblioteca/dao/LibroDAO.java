@@ -4,6 +4,9 @@ import cl.duoc.biblioteca.modelo.Libro;
 
 import java.util.List;
 
+/**
+ * Define las operaciones de consulta y mantenimiento de los libros.
+ */
 public interface LibroDAO {
 
     boolean crear(Libro libro);

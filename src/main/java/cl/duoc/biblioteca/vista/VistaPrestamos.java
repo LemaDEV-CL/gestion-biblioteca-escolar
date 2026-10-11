@@ -12,6 +12,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Permite registrar préstamos y devoluciones y consultar su estado según el usuario.
+ */
 public class VistaPrestamos extends JFrame {
 
     private final Usuario usuario;

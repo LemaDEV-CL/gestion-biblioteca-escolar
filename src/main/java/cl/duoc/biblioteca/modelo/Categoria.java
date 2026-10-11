@@ -1,5 +1,8 @@
 package cl.duoc.biblioteca.modelo;
 
+/**
+ * Representa una categoría para organizar los libros.
+ */
 public class Categoria {
 
     private int id;

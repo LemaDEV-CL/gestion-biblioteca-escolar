@@ -15,6 +15,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementa las operaciones de préstamos en MySQL mediante JDBC.
+ */
 public class PrestamoDAOImpl implements PrestamoDAO {
 
     @Override

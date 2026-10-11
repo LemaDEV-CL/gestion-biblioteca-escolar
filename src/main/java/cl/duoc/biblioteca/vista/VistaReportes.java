@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Muestra los libros más prestados, el historial por estudiante y los préstamos pendientes.
+ */
 public class VistaReportes extends JFrame {
 
     private final ControladorPrestamo controladorPrestamo;

@@ -1,5 +1,8 @@
 package cl.duoc.biblioteca.modelo;
 
+/**
+ * Reúne los datos comunes de las personas y define cómo describirlas.
+ */
 public abstract class Persona {
 
     private int id;

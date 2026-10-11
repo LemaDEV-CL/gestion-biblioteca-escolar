@@ -4,6 +4,9 @@ import cl.duoc.biblioteca.modelo.Estudiante;
 
 import java.util.List;
 
+/**
+ * Define las operaciones de consulta y mantenimiento de los estudiantes.
+ */
 public interface EstudianteDAO {
 
     boolean crear(Estudiante estudiante);

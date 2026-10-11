@@ -6,6 +6,9 @@ import cl.duoc.biblioteca.modelo.Estudiante;
 
 import java.util.List;
 
+/**
+ * Valida los datos de los estudiantes y coordina su gestión con el DAO.
+ */
 public class ControladorEstudiante {
 
     private final EstudianteDAO estudianteDAO;
